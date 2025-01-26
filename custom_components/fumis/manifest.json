@@ -1,12 +1,12 @@
 {
-  "domain": "fumis",
-  "name": "Fumis",
+  "domain": "fumis-clou-duo",
+  "name": "Fumis Clou Duo",
   "codeowners": ["@maheus"],
   "config_flow": true,
   "dependencies": [ "http" ],
-  "documentation": "https://github.com/maheus/fumis_integration/",
+  "documentation": "https://github.com/janosch1337/fumis_integration_clou_duo/",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/maheus/fumis_integration/issues",
+  "issue_tracker": "https://github.com/janosch1337/fumis_integration_clou_duo/issues",
   "requirements": ["aiofiles>=0.5.0", "requests>=2.24.0"],
   "version": "2.0.1"
 }
