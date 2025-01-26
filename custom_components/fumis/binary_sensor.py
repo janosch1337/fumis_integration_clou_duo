@@ -23,6 +23,7 @@ from homeassistant.components.binary_sensor import (
 from .const import (
     DOMAIN,
     ATTR_STATUS,
+    ATTR_STATUS_ID,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -31,6 +32,11 @@ SENSOR_TYPES = {
     ATTR_STATUS: {
         CONF_NAME: "Stove Status",
         CONF_TYPE: ATTR_STATUS,
+        CONF_DEVICE_CLASS: BinarySensorDeviceClass.RUNNING,
+    },
+    ATTR_STATUS_ID: {
+        CONF_NAME: "Stove Status ID",
+        CONF_TYPE: ATTR_STATUS_ID,
         CONF_DEVICE_CLASS: BinarySensorDeviceClass.RUNNING,
     },
 }
@@ -46,6 +52,7 @@ async def async_setup_entry(
 
     sensors = [
               ATTR_STATUS,
+              ATTR_STATUS_ID,
               ]
 
     if fumis is None:
