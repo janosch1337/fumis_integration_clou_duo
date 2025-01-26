@@ -4,6 +4,8 @@ import logging
 from homeassistant.const import (
     ATTR_TEMPERATURE,
     ATTR_STATE,
+    PRESSURE,
+    REVOLUTIONS_PER_MINUTE,
     PERCENTAGE,
     CONF_NAME,
     CONF_DEVICE_CLASS,
@@ -30,6 +32,7 @@ from homeassistant.core import HomeAssistant
 from .const import (
     DOMAIN,
     ATTR_POWER,
+    ATTR_TEMPERATURE_BURN,
     ATTR_FUEL,
     ATTR_ACTUAL_POWER,
 )
@@ -43,11 +46,29 @@ SENSOR_TYPES = {
         CONF_DEVICE_CLASS: SensorDeviceClass.TEMPERATURE,
         CONF_UNIT_OF_MEASUREMENT: UnitOfTemperature.CELSIUS,
     },
+    ATTR_TEMPERATURE_BURN: {
+        CONF_NAME: "Burn Temperature",
+        CONF_TYPE: ATTR_TEMPERATURE_BURN,
+        CONF_DEVICE_CLASS: SensorDeviceClass.TEMPERATURE,
+        CONF_UNIT_OF_MEASUREMENT: UnitOfTemperature.CELSIUS,
+    },
     ATTR_POWER: {
         CONF_NAME: "Power",
         CONF_TYPE: ATTR_POWER,
         CONF_DEVICE_CLASS: SensorDeviceClass.POWER,
         CONF_UNIT_OF_MEASUREMENT: UnitOfPower.KILO_WATT,
+    },
+    PRESSURE: {
+        CONF_NAME: "Pressure",
+        CONF_TYPE: PRESSURE,
+        CONF_DEVICE_CLASS: SensorDeviceClass.PRESSURE,
+        CONF_UNIT_OF_MEASUREMENT: None,
+    },
+    REVOLUTIONS_PER_MINUTE: {
+        CONF_NAME: "Fan Speed",
+        CONF_TYPE: REVOLUTIONS_PER_MINUTE,
+        CONF_DEVICE_CLASS: SensorDeviceClass.SPEED,
+        CONF_UNIT_OF_MEASUREMENT: None,
     },
     ATTR_ACTUAL_POWER: {
         CONF_NAME: "Actual Power",
@@ -80,6 +101,9 @@ async def async_setup_entry(
 
     sensors = [
               ATTR_TEMPERATURE,
+              ATTR_TEMPERATURE_BURN,
+              REVOLUTIONS_PER_MINUTE,
+              PRESSURE,
               ATTR_POWER,
               ATTR_ACTUAL_POWER,
               ATTR_FUEL,
