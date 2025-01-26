@@ -1,6 +1,6 @@
 {
-  "domain": "fumis-clou-duo",
-  "name": "Fumis Clou Duo",
+  "domain": "fumis",
+  "name": "Fumis",
   "codeowners": ["@maheus"],
   "config_flow": true,
   "dependencies": [ "http" ],
